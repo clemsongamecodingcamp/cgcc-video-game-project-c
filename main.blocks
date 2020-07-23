@@ -1,1 +1,35 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><block type="function_definition" id=";~AoJr(^|,#ru79Tl~B)" x="260" y="0"><mutation name="Start Screen" functionid="afkuaRwqW~^5l=6Tdl=x"/><field name="function_name">Start Screen</field><statement name="STACK"><block type="game_show_long_text" id="YS{J}mO-7d,OHd;V*t|1"><field name="layout">DialogLayout.Bottom</field><value name="str"><shadow type="text" id="JbBx1tWSD|}1]|pN|h8G"><field name="TEXT">This is my game. - By a Clemson First-Year Student</field></shadow></value></block></statement></block><block type="pxt-on-start" id="oAZg0#q/cu:_+mebI:-}" x="0" y="20"><statement name="HANDLER"><block type="function_call" id="knBM*x8{7KiC]wSHOZMS"><mutation name="Start Screen" functionid="afkuaRwqW~^5l=6Tdl=x"/></block></statement></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="KIND_SpriteKind" id="BsvPX$xSSnh[I/5ou{gl">Player</variable><variable type="KIND_SpriteKind" id=",7$n(x/oLOR32n.TkU~]">Projectile</variable><variable type="KIND_SpriteKind" id="##=E6GQ[N]{lr`aw}FD[">Food</variable><variable type="KIND_SpriteKind" id="=0[Ur#|%!a#!synBfju1">Enemy</variable><variable id="mo15M*Ni@W29m}V)e.c:">Marlin</variable><variable id="(@b?aE{5Nx31J2d6gD,+">Bruce</variable></variables><block type="function_definition" id=";~AoJr(^|,#ru79Tl~B)" x="320" y="0"><mutation name="Start Screen" functionid="afkuaRwqW~^5l=6Tdl=x"/><field name="function_name">Start Screen</field><statement name="STACK"><block type="game_show_long_text" id="YS{J}mO-7d,OHd;V*t|1"><field name="layout">DialogLayout.Bottom</field><value name="str"><shadow type="text" id="JbBx1tWSD|}1]|pN|h8G"><field name="TEXT">This is my game. - By a Clemson First-Year Student</field></shadow></value></block></statement></block><block type="pxt-on-start" id="oAZg0#q/cu:_+mebI:-}" x="0" y="80"><statement name="HANDLER"><block type="function_call" id="knBM*x8{7KiC]wSHOZMS"><mutation name="Start Screen" functionid="afkuaRwqW~^5l=6Tdl=x"/><next><block type="variables_set" id="`P[Q3s;*[wsKNh_9{9!`"><field name="VAR" id="mo15M*Ni@W29m}V)e.c:">Marlin</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="[[fKcN5:U~PTS|HD,VFu"><value name="img"><shadow type="screen_image_picker" id="]fzn(ldf2BErBY7s:cVo"><field name="img">img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . c c c c . . . . 
+. . . . . . c c d d d d c . . . 
+. . . . . c c c c c c d c . . . 
+. . . . c c 4 4 4 4 d c c . . . 
+. . . c 4 d 4 4 4 4 4 1 c . c c 
+. . c 4 4 4 1 4 4 4 4 d 1 c 4 c 
+. c 4 4 4 4 1 4 4 4 4 4 1 c 4 c 
+f 4 4 4 4 4 1 4 4 4 4 4 1 4 4 f 
+f 4 4 4 f 4 1 c c 4 4 4 1 f 4 f 
+f 4 4 4 4 4 1 4 4 f 4 4 d f 4 f 
+. f 4 4 4 4 1 c 4 f 4 d f f f f 
+. . f f 4 d 4 4 f f 4 c f c . . 
+. . . . f f 4 4 4 4 c d b c . . 
+. . . . . . f f f f d d d c . . 
+. . . . . . . . . . c c c . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="Crip$ZKk`Z+i=pS#y}rC"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="variables_set" id="Sw}K@TGK+fJ7{`m?u,ff"><field name="VAR" id="(@b?aE{5Nx31J2d6gD,+">Bruce</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="gE-=Jw`J+?PH[h*IL__q"><value name="img"><shadow type="screen_image_picker" id="+%72u5W:)c{F@lOz)cHg"><field name="img">img`
+. . . . . . . . . . . . . c c f f f . . . . . . . . . . . . . . 
+. . . . . . . . . . . . c d d b b f . . . . . . . . . . . . . . 
+. . . . . . . . . . . c d d b b f . . . . . . . . . . . . . . . 
+. . . . . . . . . . f c c b b c f . . . . . . . . . . . . c c c 
+. . . . f f f f f f c c c c c c f f . . . . . . . . . c c b b c 
+. . f f b b b b b b b b b b b b b c f f f . . . . . c d b b c . 
+f f b b b b b b b b b c b c b b b b c c c f f . . c d d b b f . 
+f b c b b b b b f f b b c b c b b b c c c c c f f f d b b f . . 
+f b b b 1 1 1 1 f f 1 b c b c b b b c c c c c c c b b b c f . . 
+. f b 1 1 1 1 1 1 1 1 b b b b b b c c c c c c c c c b c c f . . 
+. . f c c c 3 3 c c 1 1 b b b b c c c c c c c c f f f b b c f . 
+. . . f c 1 3 1 c 1 1 1 b b b c c c c c b d b c . . . f b b f . 
+. . . . f 3 3 c 1 1 1 c b b b f d d d d d c c . . . . . f b b f 
+. . . . . f f 1 1 1 1 f b d b b f d d c c . . . . . . . . f f f 
+. . . . . . . c c c c c f b d b b f c . . . . . . . . . . . . . 
+. . . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="{u2#7PF?R6kJ3)PlHI9A"><field name="MEMBER">Enemy</field></shadow></value></block></value></block></next></block></next></block></statement></block></xml>
