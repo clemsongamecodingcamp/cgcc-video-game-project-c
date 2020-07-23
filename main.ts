@@ -1,8 +1,25 @@
+game.onGameUpdateWithHeading(function () {
+    scene.cameraFollowSprite(Marlin)
+})
 function Start_Screen () {
     game.showLongText("This is my game. - By a Clemson First-Year Student", DialogLayout.Bottom)
 }
+let Marlin: Sprite = null
 Start_Screen()
-let Marlin = sprites.create(img`
+tiles.setTilemap(tiles.createTilemap(hex`0b000b0001010101010101010101010100000000000000010001010101010101010001000101000000000001000100010100010001010100010001010001000100000001000101000101010001010100010100010000000100000001010001000101010001000101000000000000000100010101010101010101010101`, img`
+    2 2 2 2 2 2 2 2 2 2 2 
+    2 . . . . . . . 2 . 2 
+    2 2 2 2 2 2 2 . 2 . 2 
+    2 . . . . . 2 . 2 . 2 
+    2 . 2 . 2 2 2 . 2 . 2 
+    2 . 2 . 2 . . . 2 . 2 
+    2 . 2 2 2 . 2 2 2 . 2 
+    2 . 2 . . . 2 . . . 2 
+    2 . 2 . 2 2 2 . 2 . 2 
+    2 . . . . . . . 2 . 2 
+    2 2 2 2 2 2 2 2 2 2 2 
+    `, [myTiles.transparency16,myTiles.tile1], TileScale.Sixteen))
+Marlin = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . c c c c . . . . 
     . . . . . . c c d d d d c . . . 
@@ -38,3 +55,4 @@ let Bruce = sprites.create(img`
     . . . . . . . c c c c c f b d b b f c . . . . . . . . . . . . . 
     . . . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . 
     `, SpriteKind.Enemy)
+Marlin.setPosition(152, 20)
