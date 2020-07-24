@@ -34,7 +34,7 @@ info.onCountdownEnd(function () {
         . . . . . . . . . . . . . f f f 
         `, SpriteKind.Enemy)
     Bruce.setPosition(152, 20)
-    Bruce.setVelocity(0, 50)
+    Bruce.setVelocity(0, 75)
 })
 function bruceVelocity (num: number) {
     if (true) {
