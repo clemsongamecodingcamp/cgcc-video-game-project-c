@@ -34,12 +34,10 @@ info.onCountdownEnd(function () {
         . . . . . . . . . . . . . f f f 
         `, SpriteKind.Enemy)
     Bruce.setPosition(152, 20)
-    Bruce.setVelocity(0, 75)
+    bruceVelocity()
 })
-function bruceVelocity (num: number) {
-    if (true) {
-    	
-    }
+function bruceVelocity () {
+    Bruce.follow(Marlin, 75)
 }
 function Start_Screen () {
     game.showLongText("This is my game. - By a Clemson First-Year Student", DialogLayout.Bottom)
