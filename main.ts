@@ -1,14 +1,18 @@
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile3, function (sprite, location) {
     tiles.setTileAt(location, myTiles.transparency16)
     music.baDing.play()
-    keyHave = 1
+    keyHave += 1
+})
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location) {
+    if (keyHave == 1) {
+        game.over(true)
+    } else {
+    	
+    }
 })
 game.onGameUpdateWithHeading(function () {
     controller.moveSprite(Marlin, 50, 50)
     scene.cameraFollowSprite(Marlin)
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.transparency16, function (sprite, location) {
-	
 })
 function Start_Screen () {
     game.showLongText("This is my game. - By a Clemson First-Year Student", DialogLayout.Bottom)
@@ -38,9 +42,9 @@ let Bruce: Sprite = null
 let keyHave = 0
 let Marlin: Sprite = null
 Start_Screen()
-tiles.setTilemap(tiles.createTilemap(hex`0b000b0001010101010101010101010103000000000000010001010101010101010001000101000000000001000100010100010001010100010001010001020100000001000101000101010001010100010100010000000100000001010001000101010001000101000000000000000100010101010101010101010101`, img`
+tiles.setTilemap(tiles.createTilemap(hex`0b000b0001010101010101010101010300000000000000010001010101010101010001000101000000000001000100010100010001010100010001010001020100000001000101000101010001010100010100010000000100000001010001000101010001000101000000000000000100010101010101010101010101`, img`
     2 2 2 2 2 2 2 2 2 2 2 
-    2 . . . . . . . 2 . 2 
+    . . . . . . . . 2 . 2 
     2 2 2 2 2 2 2 . 2 . 2 
     2 . . . . . 2 . 2 . 2 
     2 . 2 . 2 2 2 . 2 . 2 
