@@ -37,7 +37,13 @@ info.onCountdownEnd(function () {
         . . . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy)
     Bruce.setPosition(152, 20)
+    Bruce.setVelocity(0, 50)
 })
+function bruceVelocity (num: number) {
+    if (true) {
+    	
+    }
+}
 let Bruce: Sprite = null
 let keyHave = 0
 let Marlin: Sprite = null
