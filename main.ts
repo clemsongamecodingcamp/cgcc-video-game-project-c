@@ -3,6 +3,26 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile3, function (sprite, location
     music.baDing.play()
     keyHave += 1
 })
+function bruceResponse () {
+    bruceposdir = []
+    if (!(scene.isTileAWallAt(scene.getCoordinateNTilesAwayFromTile(1, TravelDirection.Right, Bruce)))) {
+        bruceposdir.push(Math.mod(sprites.heading(Bruce) + 90, 360))
+    }
+    if (!(scene.isTileAWallAt(scene.getCoordinateNTilesAwayFromTile(1, TravelDirection.Left, Bruce)))) {
+        bruceposdir.push(Math.mod(sprites.heading(Bruce) - 90, 360))
+    }
+    if (!(scene.isTileAWallAt(scene.getCoordinateNTilesAwayFromTile(1, TravelDirection.Ahead, Bruce)))) {
+        bruceposdir.push(sprites.heading(Bruce))
+    }
+    bruceVelocity(arrays.choose(bruceposdir))
+}
+function bruceMovement () {
+    if (scene.getTileColCoordinate(scene.getTileLocationOfSprite(Bruce)) != bruceprevcol || scene.getTileRowCoordinate(scene.getTileLocationOfSprite(Bruce)) != bruceprevrow) {
+        bruceResponse()
+        bruceprevrow = scene.getTileRowCoordinate(scene.getTileLocationOfSprite(Bruce))
+        bruceprevcol = scene.getTileColCoordinate(scene.getTileLocationOfSprite(Bruce))
+    }
+}
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location) {
     if (keyHave == 1) {
         game.over(true)
@@ -13,6 +33,14 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location
 game.onGameUpdateWithHeading(function () {
     controller.moveSprite(Marlin, 50, 50)
     scene.cameraFollowSprite(Marlin)
+    if (isBrucealive == 1) {
+        if (scene.spriteContainedWithinTile(Bruce)) {
+            bruceMovement()
+        }
+        if (Bruce.vx == 0 && Bruce.vy == 0) {
+            bruceVelocity(randint(0, 3) * 90)
+        }
+    }
 })
 info.onCountdownEnd(function () {
     Bruce = sprites.create(img`
@@ -34,15 +62,30 @@ info.onCountdownEnd(function () {
         . . . . . . . . . . . . . f f f 
         `, SpriteKind.Enemy)
     Bruce.setPosition(152, 20)
-    bruceVelocity()
+    Bruce.setVelocity(0, 75)
+    bruceprevcol = scene.getTileColCoordinate(scene.getTileLocationOfSprite(Bruce))
+    bruceprevrow = scene.getTileRowCoordinate(scene.getTileLocationOfSprite(Bruce))
+    isBrucealive = 1
 })
-function bruceVelocity () {
-    Bruce.follow(Marlin, 75)
+function bruceVelocity (dir: number) {
+    if (dir == 0) {
+        Bruce.setVelocity(0, -75)
+    } else if (dir == 90) {
+        Bruce.setVelocity(75, 0)
+    } else if (dir == 180) {
+        Bruce.setVelocity(0, 75)
+    } else if (dir == 270) {
+        Bruce.setVelocity(-75, 0)
+    }
 }
 function Start_Screen () {
     game.showLongText("This is my game. - By a Clemson First-Year Student", DialogLayout.Bottom)
 }
+let bruceprevrow = 0
+let bruceprevcol = 0
 let Bruce: Sprite = null
+let bruceposdir: number[] = []
+let isBrucealive = 0
 let keyHave = 0
 let Marlin: Sprite = null
 Start_Screen()
@@ -78,5 +121,6 @@ Marlin = sprites.create(img`
     . . . . . . . . . . c c c . . . 
     `, SpriteKind.Player)
 Marlin.setPosition(152, 20)
-info.startCountdown(30)
+info.startCountdown(10)
 keyHave = 0
+isBrucealive = 0
