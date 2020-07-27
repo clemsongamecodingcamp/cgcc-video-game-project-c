@@ -62,25 +62,28 @@ info.onCountdownEnd(function () {
         . . . . . . . . . . . . . f f f 
         `, SpriteKind.Enemy)
     Bruce.setPosition(152, 20)
-    Bruce.setVelocity(0, 75)
+    Bruce.setVelocity(0, 100)
     bruceprevcol = scene.getTileColCoordinate(scene.getTileLocationOfSprite(Bruce))
     bruceprevrow = scene.getTileRowCoordinate(scene.getTileLocationOfSprite(Bruce))
     isBrucealive = 1
 })
 function bruceVelocity (dir: number) {
     if (dir == 0) {
-        Bruce.setVelocity(0, -75)
+        Bruce.setVelocity(0, -100)
     } else if (dir == 90) {
-        Bruce.setVelocity(75, 0)
+        Bruce.setVelocity(100, 0)
     } else if (dir == 180) {
-        Bruce.setVelocity(0, 75)
+        Bruce.setVelocity(0, 100)
     } else if (dir == 270) {
-        Bruce.setVelocity(-75, 0)
+        Bruce.setVelocity(-100, 0)
     }
 }
 function Start_Screen () {
     game.showLongText("This is my game. - By a Clemson First-Year Student", DialogLayout.Bottom)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    game.over(false)
+})
 let bruceprevrow = 0
 let bruceprevcol = 0
 let Bruce: Sprite = null
@@ -121,6 +124,6 @@ Marlin = sprites.create(img`
     . . . . . . . . . . c c c . . . 
     `, SpriteKind.Player)
 Marlin.setPosition(152, 20)
-info.startCountdown(10)
+info.startCountdown(30)
 keyHave = 0
 isBrucealive = 0
