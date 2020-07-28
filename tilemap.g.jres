@@ -5,22 +5,22 @@
         "tilemapTile": true
     },
     "tile1": {
-        "data": "hwQQABAAAAB3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3dw==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true
-    },
-    "tile2": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "data": "hwQQABAAAAC8u9y9zMzcu9y9zMy8u8zMzMy8u9yxvLu8u9y93L3cvdyxzMzMzMzM3LG8u7y7vLvcvdyx3L3cvczM3L3MzMzMvLvMzLy7vLvcsby73LHcvdy93LHcvczMzMzcsczMvLu8u9y9vLvcsdyxzMzcvdyx3L28u8zM3L3MzNyx3LvMzA==",
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true
     },
     "tile3": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBVVVUFAABVVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADu7gAAAAAA4EREDgAAAABO5E7k7u7uDk4O4ERERETkXg7gVVVVVeVe5V7l7u5BDuBVVQ4A4EUOAO7uAAAA7gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true
     },
     "tile4": {
-        "data": "hwQQABAAAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzA==",
+        "data": "hwQQABAAAAC8u9y9zMzcu9y9zMy8u8zMzMy8u9yxvLu8u9y93L3cvdyxzN3dzczM3LHc/P/fvLvcvc38///dvczcy/z//9/MvNvL/P//37vc0cvM///fvdzdy8z8/9/MzNy7zMzM3Lu8u73LzMzdsdyx3Lu729yx3L283d3N3L3MzNyx3LvMzA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "tile6": {
+        "data": "hwQQABAAAAC8u9y9zMzcu9y9zN3dvczMzMzcu7vbvLu8u73LzMzdvdzRu8zMzNzM3NHLzP//37vc3cv8///fvczcy/z//9/MvNvL/P//37vcsc38///dvdy93Pz/38zMzMzc3d3NvLu8u9y9vLvcsdyxzMzcvdyx3L28u8zM3L3MzNyx3LvMzA==",
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true
     },
