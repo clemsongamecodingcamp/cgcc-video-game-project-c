@@ -63,6 +63,7 @@ info.onCountdownEnd(function () {
         `, SpriteKind.Enemy)
     Bruce.setPosition(152, 20)
     Bruce.setVelocity(0, 100)
+    animateBruce()
     bruceprevcol = scene.getTileColCoordinate(scene.getTileLocationOfSprite(Bruce))
     bruceprevrow = scene.getTileRowCoordinate(scene.getTileLocationOfSprite(Bruce))
     isBrucealive = 1
@@ -80,6 +81,158 @@ function bruceVelocity (dir: number) {
 }
 function Start_Screen () {
     game.showLongText("This is my game. - By a Clemson First-Year Student", DialogLayout.Bottom)
+}
+function animateBruce () {
+    animation.runImageAnimation(
+    Bruce,
+    [img`
+        . . . . . . . . . . . . . c c f 
+        . . . . . . . . . . . c c d d b 
+        . . . . . . . . . . c c d d b b 
+        . . . . . . . . . . f c c b b c 
+        . . . . . f f f f f c c c c c c 
+        . . . f f b b b b b b b c b b b 
+        . . f b b b b b b b b c b c b b 
+        f f b b b b b b f f b b c b c b 
+        f b c b b b 1 1 f f 1 b c b b b 
+        f b b b 1 1 1 1 1 1 1 1 b b b b 
+        . f b 1 1 1 3 3 c c 1 1 b b b b 
+        . . f c c c 3 1 c 1 1 1 b b b c 
+        . . . f c 1 3 c 1 1 1 c b b b f 
+        . . . . f c c c 1 1 1 f b d b b 
+        . . . . . . . . c c c c f c d b 
+        . . . . . . . . . . . . . f f f 
+        `,img`
+        . . . . . . . . . . . . . c c f 
+        . . . . . . . . . . . . c d d b 
+        . . . . . . . . . . . c d d b b 
+        . . . . . . . . . . f c c b b c 
+        . . . . f f f f f f c c c c c c 
+        . . f f b b b b b b b b b b b b 
+        f f b b b b b b b b b c b c b b 
+        f b c b b b b b f f b b c b c b 
+        f b b b 1 1 1 1 f f 1 b c b c b 
+        . f b 1 1 1 1 1 1 1 1 b b b b b 
+        . . f c c c 3 3 c c 1 1 b b b b 
+        . . . f c 1 3 1 c 1 1 1 b b b c 
+        . . . . f 3 3 c 1 1 1 c b b b f 
+        . . . . . f f 1 1 1 1 f b d b b 
+        . . . . . . . c c c c c f b d b 
+        . . . . . . . . . . . . . f f f 
+        `,img`
+        . . . . . . . . . . . . . . c f 
+        . . . . . . . . . . . . c c d d 
+        . . . . . . . . . . . c b d d b 
+        . . . . . . . . . . f c c b b c 
+        . . . f f f f f f f c c c c c c 
+        . f f c b b b b b b b b b b b b 
+        f c b b b b b b b b b c b b b b 
+        f b c b b b b f f b b b c b c b 
+        f b b 1 1 1 1 f f b b b c b c b 
+        . f b 1 1 1 1 1 1 1 1 b b c b b 
+        . . f c c c 3 3 c b 1 1 b b b b 
+        . . . f c 1 3 1 c 1 1 1 b b b c 
+        . . . . f 3 3 c 1 1 1 c b b c c 
+        . . . . . f f 1 1 1 1 f d b b c 
+        . . . . . . . c c c c c f d b b 
+        . . . . . . . . . . . . . f f f 
+        `,img`
+        . . . . . . . . . . . . . c c f 
+        . . . . . . . . . . . . c d d b 
+        . . . . . . . . . . . c d d b b 
+        . . . . . . . . . . f c c b b c 
+        . . . . f f f f f f c c c c c c 
+        . . f f b b b b b b b b b b b b 
+        f f b b b b b b b b b c b c b b 
+        f b c b b b b b f f b b c b c b 
+        f b b b 1 1 1 1 f f 1 b c b c b 
+        . f b 1 1 1 1 1 1 1 1 b b b b b 
+        . . f c c c 3 3 c c 1 1 b b b b 
+        . . . f c 1 3 1 c 1 1 1 b b b c 
+        . . . . f 3 3 c 1 1 1 c b b b f 
+        . . . . . f f 1 1 1 1 f b d b b 
+        . . . . . . . c c c c c f b d b 
+        . . . . . . . . . . . . . f f f 
+        `],
+    200,
+    true
+    )
+}
+function animateMarlin () {
+    animation.runImageAnimation(
+    Marlin,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . c c c c . . . . 
+        . . . . . . c c d d d d c . . . 
+        . . . . . c c c c c c d c . . . 
+        . . . . c c 4 4 4 4 d c c . . . 
+        . . . c 4 d 4 4 4 4 4 1 c . c c 
+        . . c 4 4 4 1 4 4 4 4 d 1 c 4 c 
+        . c 4 4 4 4 1 4 4 4 4 4 1 c 4 c 
+        f 4 4 4 4 4 1 4 4 4 4 4 1 4 4 f 
+        f 4 4 4 f 4 1 c c 4 4 4 1 f 4 f 
+        f 4 4 4 4 4 1 4 4 f 4 4 d f 4 f 
+        . f 4 4 4 4 1 c 4 f 4 d f f f f 
+        . . f f 4 d 4 4 f f 4 c f c . . 
+        . . . . f f 4 4 4 4 c d b c . . 
+        . . . . . . f f f f d d d c . . 
+        . . . . . . . . . . c c c . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . c c c c c . . . . 
+        . . . . . . c d d d d d c . . . 
+        . . . . . . c c c c c d c . . . 
+        . . . . . c 4 4 4 4 d c c . . . 
+        . . . . c d 4 4 4 4 4 1 c . . . 
+        . . . c 4 4 1 4 4 4 4 4 1 c . . 
+        . . c 4 4 4 4 1 4 4 4 4 1 c c c 
+        . c 4 4 4 4 4 1 c c 4 4 1 4 4 c 
+        . c 4 4 4 4 4 1 4 4 f 4 1 f 4 f 
+        f 4 4 4 4 f 4 1 c 4 f 4 d f 4 f 
+        f 4 4 4 4 4 4 1 4 f f 4 f f 4 f 
+        . f 4 4 4 4 1 4 4 4 4 c b c f f 
+        . . f f f d 4 4 4 4 c d d c . . 
+        . . . . . f f f f f c c c . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . c c c c . . . . 
+        . . . . . . c c d d d d c . . . 
+        . . . . . c c c c c c d c . . . 
+        . . . . c c 4 4 4 4 d c c . c c 
+        . . . c 4 d 4 4 4 4 4 1 c c 4 c 
+        . . c 4 4 4 1 4 4 4 4 d 1 c 4 f 
+        . c 4 4 4 4 1 4 4 4 4 4 1 4 4 f 
+        f 4 4 4 4 4 1 1 c f 4 4 1 f 4 f 
+        f 4 4 4 f 4 1 c 4 f 4 4 1 f 4 f 
+        f 4 4 4 4 4 1 4 4 f 4 4 d f f f 
+        . f 4 4 4 4 1 c c 4 4 d f f . . 
+        . . f f 4 d 4 4 4 4 4 c f . . . 
+        . . . . f f 4 4 4 4 c d b c . . 
+        . . . . . . f f f f d d d c . . 
+        . . . . . . . . . . c c c . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . c c c c . . . 
+        . . . . . . . c c d d d d c . . 
+        . . . . . c c c c c c d d c . . 
+        . . . c c c 4 4 4 4 d c c c c c 
+        . . c 4 4 1 4 4 4 4 4 1 c c 4 f 
+        . c 4 4 4 4 1 4 4 4 4 d 1 f 4 f 
+        f 4 4 4 4 4 1 4 4 4 4 4 1 f 4 f 
+        f 4 4 f 4 4 1 4 c f 4 4 1 4 4 f 
+        f 4 4 4 4 4 1 c 4 f 4 4 1 f f f 
+        . f 4 4 4 4 1 4 4 f 4 4 d f . . 
+        . . f 4 4 1 4 c c 4 4 d f . . . 
+        . . . f d 4 4 4 4 4 4 c f . . . 
+        . . . . f f 4 4 4 4 c d b c . . 
+        . . . . . . f f f f d d d c . . 
+        . . . . . . . . . . c c c . . . 
+        `],
+    200,
+    true
+    )
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(false)
@@ -124,6 +277,7 @@ Marlin = sprites.create(img`
     . . . . . . . . . . c c c . . . 
     `, SpriteKind.Player)
 Marlin.setPosition(152, 20)
-info.startCountdown(30)
+animateMarlin()
+info.startCountdown(20)
 keyHave = 0
 isBrucealive = 0
