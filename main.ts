@@ -44,8 +44,30 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location
         Bruce.destroy()
         Marlin.setPosition(184, 135)
         info.startCountdown(30)
+    } else if (keyHave == 2) {
+        levelNumber = 3
+        tiles.setTilemap(tiles.createTilemap(hex`0f000f00010101010101010101010101010101010000000000000000000000010201010001010100010100010101010001010001000000010000000000000001030001000100010101010001010001010001000100000000000000010001010001000100010101000101010101010000000100000001000000000001010001010101010101010101010001010000000000000000000001000001010101010001010101010001000101010000010000010000000001000004010001010100010101010101000101010000000000000000000000000001010101010101010101010101010101`, img`
+            2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+            2 . . . . . . . . . . . 2 . 2 
+            2 . 2 2 2 . 2 2 . 2 2 2 2 . 2 
+            2 . 2 . . . 2 . . . . . . . 2 
+            . . 2 . 2 . 2 2 2 2 . 2 2 . 2 
+            2 . 2 . 2 . . . . . . . 2 . 2 
+            2 . 2 . 2 . 2 2 2 . 2 2 2 2 2 
+            2 . . . 2 . . . 2 . . . . . 2 
+            2 . 2 2 2 2 2 2 2 2 2 2 2 . 2 
+            2 . . . . . . . . . . 2 . . 2 
+            2 2 2 2 . 2 2 2 2 2 . 2 . 2 2 
+            2 . . 2 . . 2 . . . . 2 . . 2 
+            2 . 2 2 2 . 2 2 2 2 2 2 . 2 2 
+            2 . . . . . . . . . . . . . 2 
+            2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+            `, [myTiles.transparency16,myTiles.tile1,myTiles.tile3,myTiles.tile4,myTiles.tile6], TileScale.Sixteen))
+        Bruce.destroy()
+        Marlin.setPosition(216, 183)
+        info.startCountdown(30)
     } else {
-    	
+        game.over(true)
     }
 })
 game.onGameUpdateWithHeading(function () {
@@ -88,6 +110,8 @@ info.onCountdownEnd(function () {
         Bruce.setPosition(152, 20)
     } else if (levelNumber == 2) {
         Bruce.setPosition(184, 135)
+    } else if (levelNumber == 3) {
+        Bruce.setPosition(216, 183)
     }
 })
 function bruceVelocity (dir: number) {
