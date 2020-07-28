@@ -25,7 +25,25 @@ function bruceMovement () {
 }
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location) {
     if (keyHave == 1) {
-        game.over(true)
+        levelNumber = 2
+        tiles.setTilemap(tiles.createTilemap(hex`0d000d0001010101010101010101010101010000000100000000000000010100010000000101010101000101000100010001000000010001010001010101010101000000010300010201000000010101000101010100010001000100000001010000000101010000000101010100010101000100010101000401000100000001000000010001010001000100010101000100010100000001000000000000000101010101010101010101010101`, img`
+            2 2 2 2 2 2 2 2 2 2 2 2 2 
+            2 . . . 2 . . . . . . . 2 
+            2 . 2 . . . 2 2 2 2 2 . 2 
+            2 . 2 . 2 . 2 . . . 2 . 2 
+            2 . 2 2 2 2 2 2 2 . . . 2 
+            . . 2 . 2 . . . 2 2 2 . 2 
+            2 2 2 . 2 . 2 . 2 . . . 2 
+            2 . . . 2 2 2 . . . 2 2 2 
+            2 . 2 2 2 . 2 . 2 2 2 . 2 
+            2 . 2 . . . 2 . . . 2 . 2 
+            2 . 2 . 2 . 2 2 2 . 2 . 2 
+            2 . . . 2 . . . . . . . 2 
+            2 2 2 2 2 2 2 2 2 2 2 2 2 
+            `, [myTiles.transparency16,myTiles.tile1,myTiles.tile3,myTiles.tile4,myTiles.tile6], TileScale.Sixteen))
+        Bruce.destroy()
+        Marlin.setPosition(184, 135)
+        info.startCountdown(30)
     } else {
     	
     }
@@ -61,12 +79,16 @@ info.onCountdownEnd(function () {
         . . . . . . . c c c c c f b d b 
         . . . . . . . . . . . . . f f f 
         `, SpriteKind.Enemy)
-    Bruce.setPosition(152, 20)
     Bruce.setVelocity(0, 100)
     animateBruce()
     bruceprevcol = scene.getTileColCoordinate(scene.getTileLocationOfSprite(Bruce))
     bruceprevrow = scene.getTileRowCoordinate(scene.getTileLocationOfSprite(Bruce))
     isBrucealive = 1
+    if (levelNumber == 1) {
+        Bruce.setPosition(152, 20)
+    } else if (levelNumber == 2) {
+        Bruce.setPosition(184, 135)
+    }
 })
 function bruceVelocity (dir: number) {
     if (dir == 0) {
@@ -240,6 +262,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 let bruceprevrow = 0
 let bruceprevcol = 0
 let bruceposdir: number[] = []
+let levelNumber = 0
 let isBrucealive = 0
 let keyHave = 0
 let Marlin: Sprite = null
@@ -281,3 +304,4 @@ animateMarlin()
 info.startCountdown(20)
 keyHave = 0
 isBrucealive = 0
+levelNumber = 1
