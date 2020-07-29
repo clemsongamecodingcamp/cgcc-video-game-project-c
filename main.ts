@@ -82,6 +82,48 @@ game.onGameUpdateWithHeading(function () {
         }
     }
 })
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (gameStart == 0) {
+        gameStart = 1
+    }
+    tiles.setTilemap(tiles.createTilemap(hex`0b000b0001010101010101010104010300000000000000010001010101010101010001000101000000000001000100010100010001010100010001010001020100000001000101000101010001010100010100010000000100000001010001000101010001000101000000000000000100010101010101010101010101`, img`
+        2 2 2 2 2 2 2 2 2 2 2 
+        . . . . . . . . 2 . 2 
+        2 2 2 2 2 2 2 . 2 . 2 
+        2 . . . . . 2 . 2 . 2 
+        2 . 2 . 2 2 2 . 2 . 2 
+        2 . 2 . 2 . . . 2 . 2 
+        2 . 2 2 2 . 2 2 2 . 2 
+        2 . 2 . . . 2 . . . 2 
+        2 . 2 . 2 2 2 . 2 . 2 
+        2 . . . . . . . 2 . 2 
+        2 2 2 2 2 2 2 2 2 2 2 
+        `, [myTiles.transparency16,myTiles.tile1,myTiles.tile3,myTiles.tile4,myTiles.tile6], TileScale.Sixteen))
+    Marlin = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . c c c c . . . . 
+        . . . . . . c c d d d d c . . . 
+        . . . . . c c c c c c d c . . . 
+        . . . . c c 4 4 4 4 d c c . . . 
+        . . . c 4 d 4 4 4 4 4 1 c . c c 
+        . . c 4 4 4 1 4 4 4 4 d 1 c 4 c 
+        . c 4 4 4 4 1 4 4 4 4 4 1 c 4 c 
+        f 4 4 4 4 4 1 4 4 4 4 4 1 4 4 f 
+        f 4 4 4 f 4 1 c c 4 4 4 1 f 4 f 
+        f 4 4 4 4 4 1 4 4 f 4 4 d f 4 f 
+        . f 4 4 4 4 1 c 4 f 4 d f f f f 
+        . . f f 4 d 4 4 f f 4 c f c . . 
+        . . . . f f 4 4 4 4 c d b c . . 
+        . . . . . . f f f f d d d c . . 
+        . . . . . . . . . . c c c . . . 
+        `, SpriteKind.Player)
+    Marlin.setPosition(152, 20)
+    animateMarlin()
+    info.startCountdown(20)
+    keyHave = 0
+    isBrucealive = 0
+    levelNumber = 1
+})
 info.onCountdownEnd(function () {
     Bruce = sprites.create(img`
         . . . . . . . . . . . . . c c f 
@@ -124,7 +166,17 @@ function bruceVelocity (dir: number) {
     }
 }
 function Start_Screen () {
-    game.showLongText("This is my game. - By a Clemson First-Year Student", DialogLayout.Bottom)
+    gameStart = 0
+    tiles.setTilemap(tiles.createTilemap(hex`0a0008000101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010203040501010101010101010101010101`, img`
+        . . . . . . . . . . 
+        . . . . . . . . . . 
+        . . . . . . . . . . 
+        . . . . . . . . . . 
+        . . . . . . . . . . 
+        . . . . . . . . . . 
+        . . . . . . . . . . 
+        . . . . . . . . . . 
+        `, [myTiles.transparency16,myTiles.tile2,myTiles.tile5,myTiles.tile7,myTiles.tile8,myTiles.tile9], TileScale.Sixteen))
 }
 function animateBruce () {
     animation.runImageAnimation(
@@ -281,49 +333,13 @@ function animateMarlin () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(false)
 })
+let gameStart = 0
+let isBrucealive = 0
+let Marlin: Sprite = null
+let levelNumber = 0
 let bruceprevrow = 0
 let bruceprevcol = 0
 let bruceposdir: number[] = []
-let levelNumber = 0
-let isBrucealive = 0
 let keyHave = 0
-let Marlin: Sprite = null
-let Bruce: Sprite = null
 Start_Screen()
-tiles.setTilemap(tiles.createTilemap(hex`0b000b0001010101010101010104010300000000000000010001010101010101010001000101000000000001000100010100010001010100010001010001020100000001000101000101010001010100010100010000000100000001010001000101010001000101000000000000000100010101010101010101010101`, img`
-    2 2 2 2 2 2 2 2 2 2 2 
-    . . . . . . . . 2 . 2 
-    2 2 2 2 2 2 2 . 2 . 2 
-    2 . . . . . 2 . 2 . 2 
-    2 . 2 . 2 2 2 . 2 . 2 
-    2 . 2 . 2 . . . 2 . 2 
-    2 . 2 2 2 . 2 2 2 . 2 
-    2 . 2 . . . 2 . . . 2 
-    2 . 2 . 2 2 2 . 2 . 2 
-    2 . . . . . . . 2 . 2 
-    2 2 2 2 2 2 2 2 2 2 2 
-    `, [myTiles.transparency16,myTiles.tile1,myTiles.tile3,myTiles.tile4,myTiles.tile6], TileScale.Sixteen))
-Marlin = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . c c c c . . . . 
-    . . . . . . c c d d d d c . . . 
-    . . . . . c c c c c c d c . . . 
-    . . . . c c 4 4 4 4 d c c . . . 
-    . . . c 4 d 4 4 4 4 4 1 c . c c 
-    . . c 4 4 4 1 4 4 4 4 d 1 c 4 c 
-    . c 4 4 4 4 1 4 4 4 4 4 1 c 4 c 
-    f 4 4 4 4 4 1 4 4 4 4 4 1 4 4 f 
-    f 4 4 4 f 4 1 c c 4 4 4 1 f 4 f 
-    f 4 4 4 4 4 1 4 4 f 4 4 d f 4 f 
-    . f 4 4 4 4 1 c 4 f 4 d f f f f 
-    . . f f 4 d 4 4 f f 4 c f c . . 
-    . . . . f f 4 4 4 4 c d b c . . 
-    . . . . . . f f f f d d d c . . 
-    . . . . . . . . . . c c c . . . 
-    `, SpriteKind.Player)
-Marlin.setPosition(152, 20)
-animateMarlin()
-info.startCountdown(20)
-keyHave = 0
-isBrucealive = 0
-levelNumber = 1
+let Bruce: Sprite = null
