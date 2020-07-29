@@ -3,6 +3,9 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile3, function (sprite, location
     music.baDing.play()
     keyHave += 1
 })
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile14, function (sprite, location) {
+    Marlin.setPosition(24, 23)
+})
 function bruceResponse () {
     bruceposdir = []
     if (!(scene.isTileAWallAt(scene.getCoordinateNTilesAwayFromTile(1, TravelDirection.Right, Bruce)))) {
@@ -46,7 +49,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location
         info.startCountdown(25)
     } else if (keyHave == 2) {
         levelNumber = 3
-        tiles.setTilemap(tiles.createTilemap(hex`0f000f00010101010101010101010101010101010000000000000000000000010201010001010100010100010101010001010001000000010000000000000001030001000100010101010001010001010001000100000000000000010001010001000100010101000101010101010000000100000001000000000001010001010101010101010101010001010000000000000000000001000001010101010001010101010001000101010000010000010000000001000004010001010100010101010101000101010000000000000000000000000001010101010101010101010101010101`, img`
+        tiles.setTilemap(tiles.createTilemap(hex`0f000f00010101010101010101010101010101010000000000000000000000010201010001010100010100010101010001010001000000010000000000010001030001000100010101010001010001010001000100000000000000010701010001000100010101000101010101010000000100000601000000000001010001010101010101010101010001010000000000000000000001000001010101010001010101010001000101010000010000010500000001000004010001010100010101010101000101010000000000000000000000000001010101010101010101010101010101`, img`
             2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
             2 . . . . . . . . . . . 2 . 2 
             2 . 2 2 2 . 2 2 . 2 2 2 2 . 2 
@@ -62,10 +65,10 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location
             2 . 2 2 2 . 2 2 2 2 2 2 . 2 2 
             2 . . . . . . . . . . . . . 2 
             2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-            `, [myTiles.transparency16,myTiles.tile1,myTiles.tile3,myTiles.tile4,myTiles.tile6], TileScale.Sixteen))
+            `, [myTiles.transparency16,myTiles.tile1,myTiles.tile3,myTiles.tile4,myTiles.tile6,myTiles.tile12,myTiles.tile13,myTiles.tile14], TileScale.Sixteen))
         Bruce.destroy()
         Marlin.setPosition(216, 184)
-        info.startCountdown(30)
+        info.startCountdown(89)
     } else if (keyHave == 3) {
         game.over(true)
     }
@@ -153,6 +156,9 @@ info.onCountdownEnd(function () {
     } else if (levelNumber == 2) {
         Bruce.setPosition(184, 135)
     }
+})
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile12, function (sprite, location) {
+    Marlin.setPosition(184, 23)
 })
 function bruceVelocity (dir: number) {
     if (dir == 0) {
@@ -330,16 +336,19 @@ function animateMarlin () {
     true
     )
 }
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile13, function (sprite, location) {
+    Marlin.setPosition(216, 56)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(false)
 })
 let gameStart = 0
 let isBrucealive = 0
-let Marlin: Sprite = null
 let levelNumber = 0
 let bruceprevrow = 0
 let bruceprevcol = 0
 let bruceposdir: number[] = []
+let Marlin: Sprite = null
 let keyHave = 0
 Start_Screen()
 let Bruce: Sprite = null
